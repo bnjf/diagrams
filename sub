@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<!--
+
+Subtract with borrow circuit
+
+Brad Forschinger, 2020
+
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- shapes from http://bretmulvey.com/VectorBlocks -->
+    <g id="not_v" style="fill: white; stroke: black; stroke-width: 2">
+      <path d="m 0,0 h 30 l -15,31 z"/>
+    </g>
+    <g id="and" style="fill: white; stroke: black; stroke-width: 2">
+      <path d="m 0,1 24,0 a 23,23 0 0 1 0,46 l -24,0 z"/>
+    </g>
+    <g id="xor" style="fill: white; stroke: black; stroke-width: 2">
+      <path d="m -3.5,1 a 40,40 0 0 1 0,46" fill="none"/>
+      <path d="m 2.5,1 13.5,0 a 40,46 0 0 1 32,23 a 40,46 0 0 1 -32,23 l -13.5,0 a 40,40 0 0 0 0,-46 z"/>
+    </g>
+    <g id="or" style="fill: white; stroke: black; stroke-width: 2">
+      <path d="m -3.5,1 19.5,0 a 40,46 0 0 1 32,23 a 40,46 0 0 1 -32,23 l -19.5,0 a 40,40 0 0 0 0,-46 z"/>
+    </g>
+  </defs>
+
+  <g style="stroke: #000000; stroke-width: 2; fill: none;">
+    <!-- from B_{in} -->
+    <path d="M 16,48 h 56 l 16,16 h 120 m -120,0 l 16,16 h 40"/>
+    <!-- from Y -->
+    <path d="M 16,32 h 64 l 16,16 h 16"/>
+    <path d="M 24,32 v 14 m 0,4 v 80 l 16,16 h 24"/>
+    <!-- from X -->
+    <path d="M 16,16 h 96"/>
+    <!-- to not, with some underpasses -->
+    <path d="M 56,16 v 14 m 0,4 v 12 m 0,4 v 6"/>
+    <!-- from not -->
+    <path d="M 56,88 v 24 h 8"/>
+    <path d="M 56,96 h 48 l 16,16 h 24"/>
+    <!-- from xor_{1} -->
+    <path d="M 160,32 h 48"/>
+    <!-- from or -->
+    <path d="M 256,48 h 16"/>
+    <!-- from and_{2} -->
+    <path d="M 192,96 h 16"/>
+    <!-- from xor_{2} -->
+    <path d="M 256,112 h 16"/>
+    <!-- from and_{1} -->
+    <path d="M 112,128 h 96"/>
+  </g>
+
+  <!-- intersections dots -->
+  <g style="fill: #000000">
+    <circle r="3" cx="88" cy="64"/>
+    <circle r="3" cx="24" cy="32"/>
+    <circle r="3" cx="56" cy="16"/>
+    <circle r="3" cx="56" cy="96"/>
+  </g>
+
+  <!-- gates -->
+  <g>
+    <use x="41" y="57" href="#not_v"/>
+    <use x="64" y="104" href="#and"/>
+    <use x="144" y="72" href="#and"/>
+    <use x="112" y="8" href="#xor"/>
+    <use x="208" y="88" href="#xor"/>
+    <use x="208" y="24" href="#or"/>
+  </g>
+
+  <!-- labels -->
+  <g style="font-family: sans-serif; font-style: italic; font-size: 12pt;">
+
+    <!-- input -->
+    <text x="4" y="22">X</text>
+    <text x="4" y="38">Y</text>
+    <text x="4" y="54">
+      <tspan>B
+      <tspan style="baseline-shift: sub; font-style: normal; font-size: 8pt" dx="-0.5em">in</tspan>
+      </tspan>
+    </text>
+
+    <!-- output -->
+    <text x="272" y="54">D</text>
+    <text x="272" y="118">
+      <tspan>B
+      <tspan style="baseline-shift: sub; font-style: normal; font-size: 8pt" dx="-0.5em">out</tspan>
+      </tspan>
+    </text>
+  </g>
+</svg>
